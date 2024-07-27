@@ -1,46 +1,21 @@
-const form = document.querySelector('.feedback-form');
-const email = form.querySelector('.feedback-form-email');
-const message = form.querySelector('.feedback-form-message');
-const feedbackFormStateKey = 'feedback-form-state';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-form.addEventListener('input', onFormInput);
+iziToast.settings({
+  position: 'topCenter',
+});
+
+const form = document.querySelector('.form');
+const delay = document.querySelector('input[name="delay"]');
+const state = document.querySelector('input[name="state"]');
+
 form.addEventListener('submit', onFormSubmit);
-
-setFormData();
-
-function onFormInput(event) {
-  const formData = {
-    email: email.value,
-    message: message.value,
-  };
-
-  localStorage.setItem(feedbackFormStateKey, JSON.stringify(formData));
-}
 
 function onFormSubmit(event) {
   event.preventDefault();
 
-  if (email.value === '' || message.value.trim() === '') {
-    return alert('Fill please all fields');
-  }
-
-  const formData = {
-    email: email.value,
-    message: message.value,
-  };
-
-  console.log(formData);
-
-  localStorage.removeItem(feedbackFormStateKey);
-  form.reset();
-}
-
-function setFormData() {
-  const savedData = localStorage.getItem(feedbackFormStateKey);
-
-  if (savedData) {
-    const parsedData = JSON.parse(savedData);
-    email.value = parsedData.email;
-    message.value = parsedData.message;
-  }
+  iziToast.info({
+    title: 'Hey',
+    message: 'I am a toast message',
+  });
 }
