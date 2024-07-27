@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer</title>
     
+    
     <script type="module" crossorigin src="/goit-advancedjs-hw-02/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-02/assets/modulepreload-polyfill-3cfb730f.js">
-    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-02/assets/vendor-18b38a61.js">
-    <link rel="stylesheet" href="/goit-advancedjs-hw-02/assets/vendor-21fdfc57.css">
+    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-02/assets/vendor-77e16229.js">
+    <link rel="stylesheet" href="/goit-advancedjs-hw-02/assets/vendor-7a007824.css">
     <link rel="stylesheet" href="/goit-advancedjs-hw-02/assets/common-eb73aa33.css">
   </head>
   <body>
@@ -17,23 +18,23 @@
 
     <!-- Add elements -->
     <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
+    <button type="button" id="start-button" data-start>Start</button>
 
     <div class="timer">
       <div class="field">
-        <span class="value" data-days>00</span>
+        <span class="value js-timer__days" data-days>00</span>
         <span class="label">Days</span>
       </div>
       <div class="field">
-        <span class="value" data-hours>00</span>
+        <span class="value js-timer__hours" data-hours>00</span>
         <span class="label">Hours</span>
       </div>
       <div class="field">
-        <span class="value" data-minutes>00</span>
+        <span class="value js-timer__minutes" data-minutes>00</span>
         <span class="label">Minutes</span>
       </div>
       <div class="field">
-        <span class="value" data-seconds>00</span>
+        <span class="value js-timer__seconds" data-seconds>00</span>
         <span class="label">Seconds</span>
       </div>
     </div>

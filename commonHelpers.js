@@ -1,11 +1,2 @@
-import"./assets/modulepreload-polyfill-3cfb730f.js";/* empty css                      */import"./assets/vendor-18b38a61.js";const r=document.querySelector(".gallery"),t=galleryItems.map(({preview:a,original:e,description:l})=>`<li class="gallery__item">
-              <a class="gallery__link" href="${e}">
-                <img
-                  class="gallery__image"
-                  src="${a}"
-                  data-source="${e}"
-                  alt="${l}"
-                />
-              </a> 
-            </li>`).join("");r.insertAdjacentHTML("beforeend",t);new SimpleLightbox(".gallery a",{captionsData:"alt",captionDelay:250});
+import"./assets/modulepreload-polyfill-3cfb730f.js";/* empty css                      */import{i,f as u}from"./assets/vendor-77e16229.js";i.settings({position:"topCenter"});const s=document.querySelector("#start-button");s.disabled=!0;const r=document.querySelector("#datetime-picker");let o;const m={enableTime:!0,time_24hr:!0,defaultDate:new Date,minuteIncrement:1,userSelectedDate:null,onClose(e){e[0]<Date.now()?(i.error({message:"Please choose a date in the future"}),s.disabled=!0):(s.disabled=!1,o=e[0],console.log(o))}};u("#datetime-picker",m);const h={intervalId:null,isActive:!1,elements:{days:document.querySelector(".js-timer__days"),hours:document.querySelector(".js-timer__hours"),minutes:document.querySelector(".js-timer__minutes"),seconds:document.querySelector(".js-timer__seconds")},start(){this.isActive||(this.isActive=!0,s.disabled=!0,r.disabled=!0,this.intervalId=setInterval(()=>{const e=Date.now(),n=o-e,t=f(n);console.log(t),n<=0?(this.stop(),console.log("The end")):(this.elements.days.textContent=t.days,this.elements.hours.textContent=String(t.hours).padStart(2,"0"),this.elements.minutes.textContent=String(t.minutes).padStart(2,"0"),this.elements.seconds.textContent=String(t.seconds).padStart(2,"0"))},1e3))},stop(){clearInterval(this.intervalId),this.isActive=!1,s.disabled=!1,r.disabled=!1}};s.addEventListener("click",()=>{h.start()});function f(e){const a=Math.floor(e/864e5),c=Math.floor(e%864e5/36e5),d=Math.floor(e%864e5%36e5/6e4),l=Math.floor(e%864e5%36e5%6e4/1e3);return{days:a,hours:c,minutes:d,seconds:l}}
 //# sourceMappingURL=commonHelpers.js.map
