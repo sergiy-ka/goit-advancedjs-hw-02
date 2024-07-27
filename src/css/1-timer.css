@@ -1,0 +1,17 @@
+.timer {
+  font-size: 36px;
+  color: #000000;
+  display: flex;
+}
+
+.timer .field {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  text-align: center;
+}
+
+.timer .field .label {
+  font-size: 14px;
+  color: #000000;
+}

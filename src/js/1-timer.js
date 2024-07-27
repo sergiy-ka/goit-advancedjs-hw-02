@@ -7,9 +7,9 @@ iziToast.settings({
   position: 'topCenter',
 });
 
+const input = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('#start-button');
 startButton.disabled = true;
-const input = document.querySelector('#datetime-picker');
 
 let userSelectedDate;
 
@@ -20,11 +20,8 @@ const options = {
   minuteIncrement: 1,
   userSelectedDate: null,
   onClose(selectedDates) {
-    //console.log(selectedDates[0]);
     if (selectedDates[0] < Date.now()) {
-      //window.alert('Please choose a date in the future');
       iziToast.error({
-        //title: 'Error',
         message: 'Please choose a date in the future',
       });
       startButton.disabled = true;
@@ -61,13 +58,13 @@ const countdownTimer = {
       const deltaTime = userSelectedDate - currentTime;
       const time = convertMs(deltaTime);
 
-      console.log(time);
+      //console.log(time);
 
       if (deltaTime <= 0) {
         this.stop();
-        console.log('The end');
       } else {
-        this.elements.days.textContent = time.days;
+        this.elements.days.textContent =
+          time.days < 10 ? String(time.days).padStart(2, '0') : time.days;
         this.elements.hours.textContent = String(time.hours).padStart(2, '0');
         this.elements.minutes.textContent = String(time.minutes).padStart(
           2,
@@ -83,7 +80,6 @@ const countdownTimer = {
   stop() {
     clearInterval(this.intervalId);
     this.isActive = false;
-    startButton.disabled = false;
     input.disabled = false;
   },
 };
@@ -110,7 +106,3 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-// console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-// console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-// console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
