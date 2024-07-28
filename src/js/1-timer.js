@@ -5,6 +5,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 iziToast.settings({
   position: 'topCenter',
+  icon: '',
 });
 
 const input = document.querySelector('#datetime-picker');
@@ -22,13 +23,14 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] < Date.now()) {
       iziToast.error({
+        title: '❌',
         message: 'Please choose a date in the future',
       });
       startButton.disabled = true;
     } else {
       startButton.disabled = false;
       userSelectedDate = selectedDates[0];
-      console.log(userSelectedDate);
+      //console.log(userSelectedDate);
     }
   },
 };
