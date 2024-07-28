@@ -3,11 +3,6 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-iziToast.settings({
-  position: 'topCenter',
-  icon: '',
-});
-
 const input = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('#start-button');
 startButton.disabled = true;
@@ -23,8 +18,9 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] < Date.now()) {
       iziToast.error({
-        title: '❌',
-        message: 'Please choose a date in the future',
+        message: '❌ Please choose a date in the future',
+        position: 'topCenter',
+        icon: '',
       });
       startButton.disabled = true;
     } else {
@@ -35,7 +31,7 @@ const options = {
   },
 };
 
-const fp = flatpickr('#datetime-picker', options); // flatpickr
+const fp = flatpickr('#datetime-picker', options);
 
 const countdownTimer = {
   intervalId: null,

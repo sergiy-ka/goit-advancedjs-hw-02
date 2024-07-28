@@ -1,11 +1,6 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-iziToast.settings({
-  position: 'topCenter',
-  icon: '',
-});
-
 const form = document.querySelector('.form');
 
 form.addEventListener('submit', onFormSubmit);
@@ -26,14 +21,16 @@ function onFormSubmit(event) {
   promise
     .then(delay => {
       iziToast.success({
-        title: '✅',
-        message: `Fulfilled promise in ${delay}ms`,
+        message: `✅ Fulfilled promise in ${delay}ms`,
+        position: 'topCenter',
+        icon: '',
       });
     })
     .catch(delay => {
       iziToast.error({
-        title: '❌',
-        message: `Rejected promise in ${delay}ms`,
+        message: `❌ Rejected promise in ${delay}ms`,
+        position: 'topCenter',
+        icon: '',
       });
     });
 }
