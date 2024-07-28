@@ -7,16 +7,16 @@ form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(event) {
   event.preventDefault();
-  const delay = document.querySelector('input[name="delay"]');
-  const state = document.querySelector('input[name="state"]:checked');
   const promise = new Promise((resolve, reject) => {
+    const delay = event.currentTarget.elements.delay.value;
+    const state = event.currentTarget.elements.state.value;
     setTimeout(() => {
-      if (state.value === 'fulfilled') {
-        resolve(delay.value);
+      if (state === 'fulfilled') {
+        resolve(delay);
       } else {
-        reject(delay.value);
+        reject(delay);
       }
-    }, delay.value);
+    }, delay);
   });
   promise
     .then(delay => {
