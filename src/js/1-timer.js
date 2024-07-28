@@ -26,7 +26,6 @@ const options = {
     } else {
       startButton.disabled = false;
       userSelectedDate = selectedDates[0];
-      //console.log(userSelectedDate);
     }
   },
 };
